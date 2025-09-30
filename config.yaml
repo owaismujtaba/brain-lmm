@@ -1,0 +1,32 @@
+experiment:
+  name: text-2-phenome
+  description: Text decodinf from brain signals
+  version: 1.0.0
+
+logging:
+  name: dataset_creation
+  level: INFO
+  log_file_path: 'logs/train.log'
+
+
+mode: dataset #dataset
+
+dataset:
+    dataset_dir: 'data/'
+    output_dir: 'outputs/'
+    dataset_name: 'agentlans/high-quality-english-sentences'
+    num_workers: 28
+
+train:
+    model_name : 'meta-llama/Llama-2-7b-hf'
+    max_length: 500
+    use_prompt: True
+    batch_size: 1
+    epochs: 10
+    grad_accum: 2
+    lr: 0.0001
+    eval_steps: 100
+    save_steps: 100
+    logging_steps: 20
+    
+    
